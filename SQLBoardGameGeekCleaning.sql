@@ -144,8 +144,48 @@ From Games
 Where [Rank:boardgame] <= 50
 Order by [Rank:boardgame]
 
-Select *
-From dbo.Games
-Inner Join dbo.subcategories$
-On dbo.Games.BGGId = dbo.subcategories$.BGGId
+SELECT main.[BGGId]
+      ,main.[Name]
+      ,main.[YearPublished]
+      ,main.[MinPlayers]
+      ,main.[MaxPlayers]
+      ,main.[NumOwned]
+      ,main.[NumWant]
+      ,main.[NumWish]
+      ,main.[ComMinPlaytime]
+      ,main.[ComMaxPlaytime]
+      ,main.[Family]
+      ,main.[Rank:boardgame]
+      ,main.[Rank:strategygames]
+      ,main.[Rank:abstracts]
+      ,main.[Rank:familygames]
+      ,main.[Rank:thematic]
+      ,main.[Rank:cgs]
+      ,main.[Rank:wargames]
+      ,main.[Rank:partygames]
+      ,main.[Rank:childrensgames]
+      ,main.[Cat:Thematic]
+      ,main.[Cat:Strategy]
+      ,main.[Cat:War]
+      ,main.[Cat:Family]
+      ,main.[Cat:CGS]
+      ,main.[Cat:Abstract]
+      ,main.[Cat:Party]
+      ,main.[Cat:Childrens]
+      ,main.[RecAge]
+      ,main.[GameWeightDec]
+      ,main.[AvgRate]
+      ,sub.[Exploration]
+      ,sub.[Miniatures]
+      ,sub.[Territory Building]
+      ,sub.[Card Game]
+      ,sub.[Educational]
+      ,sub.[Puzzle]
+      ,sub.[Collectible Components]
+      ,sub.[Word Game]
+      ,sub.[Print & Play]
+      ,sub.[Electronic]
+FROM [dbo].[Games] as main
+Inner Join [dbo].[subcategories$] as sub
+On main.BGGId = sub.BGGId
 
