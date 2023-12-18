@@ -185,7 +185,13 @@ SELECT main.[BGGId]
       ,sub.[Word Game]
       ,sub.[Print & Play]
       ,sub.[Electronic]
+Into BoardGameGeek
 FROM [dbo].[Games] as main
 Inner Join [dbo].[subcategories$] as sub
 On main.BGGId = sub.BGGId
+Where [Rank:boardgame] <= 50
+
+Select *
+From BoardGameGeek
+Order by [Rank:boardgame]
 
